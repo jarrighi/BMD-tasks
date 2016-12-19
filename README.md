@@ -19,30 +19,30 @@ Page Structure
 
 Phone number Validation
 
-* Validate number field not blank
-* Validate number field 10 or 11 digits
-* Validate number field doesn't start with 0
-* Validate number field spaces, dots, dashes okay
-* Validate number field alpha and special characters not okay
++ Validate number field not blank
++ Validate number field 10 or 11 digits
++ Validate number field doesn't start with 0
++ Validate number field spaces, dots, dashes okay
++ Validate number field alpha and special characters not okay
 
 
 Save a number
 
 + Clicking save adds name and number to localStorage
 + Clicking save sends user to success message
-* Can't click save without a name
-* Can't click save on invalid number
++ Can't click save without a name
++ Can't click save on invalid number
 
 
 Delete a number
 
 * Visible only if number data in localStorage
-* Clicking delete button removes data from localStorage
++ Clicking delete button removes data from localStorage
 
 
 Confirmation section
 
-* Visible immediately after clicking save
++ Visible immediately after clicking save
 * Go back button reloads the page
 
 
@@ -58,6 +58,9 @@ Data persists over browser sessions
 
 
 ### Additional notes
+
+Globophone does not allow for '+', '(', and ')' characters to be used in a phone number as specified in the prompt. It may be desirable to allow these characters since some users may type phone numbers as (555) 555-5555 or +1 555 555 5555.
+
 
 ## Task 2: Book Search
 

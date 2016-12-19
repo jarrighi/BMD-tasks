@@ -31,6 +31,52 @@
         document.getElementById('confirmation-section').classList.add('hidden');
         document.getElementById('save-section').classList.remove('hidden');
       }
+
+      function validateNumber(){
+        var number_field = document.getElementById('number-field').value;
+        number_field = number_field.replace(/\.|-|\s+/g, '');
+
+        var check_length = false;
+        var check_nonzero_start = false;
+        var check_char_types = false;
+
+        if (number_field.length == 10 | number_field.length == 11) {
+          check_length = true;
+        }
+
+        if (!number_field.startsWith('0')){
+          check_nonzero_start = true;
+        }
+
+        if (number_field.search(/\D/) == -1){
+          check_char_types = true;
+        }
+
+        return check_length && check_char_types && check_nonzero_start
+      }
+
+      function validateFields(){
+        var name_field = document.getElementById('name-field');
+        var number_field = document.getElementById('number-field');
+
+        var name_check = false;
+        var number_check = false;
+
+        if (name_field.value.length) {
+          name_check = true;
+        }
+
+        if (validateNumber()){
+          number_check = true;
+        }
+
+        if (name_check && number_check){
+          document.getElementById("save-button").disabled = false;
+        } else {
+          document.getElementById("save-button").disabled = true;
+        }
+      }
+
     </script>
   </head>
   
@@ -49,7 +95,7 @@
             <input id="number-field" name="number" type="text">
           </div>
           <div class="form-group">
-            <button id="delete-button" onclick="deleteNumber();">Delete</button>
+            <button id="delete-button" class="hidden" onclick="deleteNumber();">Delete</button>
             <button id="save-button" onclick="saveNumber();">Save</button>
           </div>
         </fieldset>
@@ -63,6 +109,15 @@
     <div>
   </div>
   <script type="text/javascript">
+    document.getElementById("save-button").disabled = true;
+
+    document.getElementById("name-field").onkeyup = function(event) {
+      validateFields()
+    };
+
+    document.getElementById("number-field").onkeyup = function(event) {
+      validateFields()
+    };
   </script>
   </body>
 </html>
