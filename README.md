@@ -29,7 +29,7 @@ Phone number Validation
 Save a number
 
 + Clicking save adds name and number to localStorage
-* Clicking save sends user to success message
++ Clicking save sends user to success message
 * Can't click save without a name
 * Can't click save on invalid number
 
@@ -43,6 +43,7 @@ Delete a number
 Confirmation section
 
 * Visible immediately after clicking save
+* Go back button reloads the page
 
 
 Data persists over browser sessions

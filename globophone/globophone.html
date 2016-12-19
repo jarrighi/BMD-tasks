@@ -21,6 +21,11 @@
         document.getElementById('save-section').classList.add('hidden');
         document.getElementById('confirmation-section').classList.remove('hidden'); 
       }
+
+      function goBack(){
+        document.getElementById('confirmation-section').classList.add('hidden');
+        document.getElementById('save-section').classList.remove('hidden');
+      }
     </script>
   </head>
   
@@ -48,7 +53,7 @@
     <div id="confirmation-section" class='hidden'>
       <fieldset>
         <legend>Saved Your Number</legend>
-        <button id="go-back-button">Go Back</button>
+        <button id="go-back-button" onclick="goBack();">Go Back</button>
       </fieldset>
     <div>
   </div>
