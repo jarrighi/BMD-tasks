@@ -8,16 +8,26 @@
     .hidden{
       display: none;
     }
-    
+
     </style>
     <script type="text/javascript">
+      function saveNumber(){
+        var name = document.getElementById('name-field').value;
+        var number = document.getElementById('number-field').value;
+
+        localStorage.setItem('globophoneName', name);
+        localStorage.setItem('globophoneNumber', number);
+
+        document.getElementById('save-section').classList.add('hidden');
+        document.getElementById('confirmation-section').classList.remove('hidden'); 
+      }
     </script>
   </head>
   
   <body>
     <h1>Welcome to Globophone</h1>
     <div id="save-section">
-      <form id="globophone-form">
+      <form id="globophone-form" onsubmit='return false;'>
         <fieldset>
           <legend>Save your number</legend>
           <div class="form-group">
@@ -30,7 +40,7 @@
           </div>
           <div class="form-group">
             <button id="delete-button">Delete</button>
-            <button id="save-button">Save</button>
+            <button id="save-button" onclick="saveNumber();">Save</button>
           </div>
         </fieldset>
       </form>

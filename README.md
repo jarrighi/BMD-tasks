@@ -10,11 +10,11 @@ These are somewhat reorganized from the prompt to represent how I plan to implem
 
 Page Structure
 
-* Text field exists
-* Phone number field exists
-* Save button exists
-* Confirmation section hidden initially
-* Go Back button exists within hidden confirmation section
++ Text field exists
++ Phone number field exists
++ Save button exists
++ Confirmation section hidden initially
++ Go Back button exists within hidden confirmation section
 
 
 Phone number Validation
@@ -28,7 +28,7 @@ Phone number Validation
 
 Save a number
 
-* Clicking save adds name and number to localStorage
++ Clicking save adds name and number to localStorage
 * Clicking save sends user to success message
 * Can't click save without a name
 * Can't click save on invalid number
