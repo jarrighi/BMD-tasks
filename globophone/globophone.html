@@ -25,11 +25,11 @@
       function deleteNumber(){
         localStorage.removeItem('globophoneName');
         localStorage.removeItem('globophoneNumber');
+        window.location.reload();
       }
 
       function goBack(){
-        document.getElementById('confirmation-section').classList.add('hidden');
-        document.getElementById('save-section').classList.remove('hidden');
+        window.location.reload();
       }
 
       function validateNumber(){
@@ -110,6 +110,7 @@
   </div>
   <script type="text/javascript">
     document.getElementById("save-button").disabled = true;
+    document.getElementById("delete-button").disabled = true;
 
     document.getElementById("name-field").onkeyup = function(event) {
       validateFields()
@@ -118,6 +119,15 @@
     document.getElementById("number-field").onkeyup = function(event) {
       validateFields()
     };
+
+    if (localStorage["globophoneName"]){
+      document.getElementById("name-field").value = localStorage["globophoneName"];
+      document.getElementById("number-field").value = localStorage["globophoneNumber"];
+      document.getElementById("delete-button").classList.remove("hidden");
+      document.getElementById("delete-button").disabled = false;
+    }
+
+    validateFields();
   </script>
   </body>
 </html>

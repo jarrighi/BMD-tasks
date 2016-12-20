@@ -36,17 +36,21 @@ Save a number
 
 Delete a number
 
-* Visible only if number data in localStorage
++ Visible only if number data in localStorage
 + Clicking delete button removes data from localStorage
 
 
 Confirmation section
 
 + Visible immediately after clicking save
-* Go back button reloads the page
++ Go back button reloads the page
+
+Miscellaneous
++ Data persists over browser sessions
+* return/enter key doesn't trigger delete
+* attractive style rather than plain html 
 
 
-Data persists over browser sessions
 
 ### How to use it
 
@@ -54,7 +58,7 @@ Data persists over browser sessions
 
     or 
 
-1. The whole thing is contained in one page, so this should work by downloading the globophone.html file and loading it in a browser.
+1. The whole application is contained in one page, so this should work by downloading the globophone.html file and loading it in a browser.
 
 
 ### Additional notes
