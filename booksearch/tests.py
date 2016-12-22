@@ -20,7 +20,6 @@ class RunCommandTest(unittest.TestCase):
 
   def test_command_takes_one_or_more_of_word_args(self):
     args = self.parser.parse_args(['hello', 'world'])
-    
 
   def test_takes_optional_data_file(self):
     args = self.parser.parse_args(['-f', 'bookdata_small.json', 'word'])
