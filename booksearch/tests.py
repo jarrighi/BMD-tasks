@@ -25,10 +25,9 @@ class RunCommandTest(unittest.TestCase):
 
   def test_takes_optional_data_file(self):
     parser = create_parser()
-    args = parser.parse_args(['-f', 'bookdata.json'])
-    self.assertIsInstance(args.file, list)
-    self.assertEqual(args.file[0], 'bookdata.json')
-    pass
+    args = parser.parse_args(['-f', 'bookdata_small.json'])
+    self.assertEqual(args.file[0], 'bookdata_small.json')
+    self.assertEqual(bookfile, 'bookdata_small.json')
 
   def test_returns_help_with_no_args(self):
     parser = create_parser()
