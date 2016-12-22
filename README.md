@@ -80,7 +80,7 @@ Basic usage
 
 Search
 
-* Allow user to match words case-insensitively is desired
+* Allow user to match words case-insensitively
 * Punctuation surrounding words should be ignored
 
 
@@ -92,8 +92,52 @@ Performance
 
 ### How to use it
 
+Both the booksearch tool and the tests can be run with Python 2 or 3. I've tested them with Python 2.7.12 and Python 3.5.2. All searches are case-inensitive.
+
 #### Running the search
+
+Run either of the following to get usage guide:
+
+```
+$ python booksearch.py 
+```
+
+```
+$ python booksearch.py -h
+```
+
+To search for books that contain a specific word in the default dataset (bookdata.json):
+
+```
+$ python booksearch.py [word]
+```
+
+To search for books that contain any of a set of words using the default dataset (bookdata.json):
+
+```
+$ python booksearch.py [word1] [word2] ...
+```
+
+To search for books using a specific dataset:
+
+```
+$ python booksearch.py -f [path/to/dataset] [word1] [word2] ...
+```
+
+or 
+
+```
+$ python booksearch.py --file [path/to/dataset] [word1] [word2] ... 
+```
 
 #### Running the tests
 
+To run the tests from the booksearch directory: 
+
+```
+python tests.py
+```
+
 ### Additional notes
+
+NA

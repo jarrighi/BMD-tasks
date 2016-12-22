@@ -15,16 +15,14 @@ class BookSearchParser(argparse.ArgumentParser):
 def create_parser():
   parser = BookSearchParser()
   parser.add_argument('-f', '--file', nargs=1, help="JSON File to be searched.")
-  parser.add_argument('words', nargs='+')
+  parser.add_argument('words', nargs='+', help="Find books with these words")
   return parser
-
 
 def set_data_file(args):
   bookfile = DEFAULT_FILE
   if args.file:
     bookfile = args.file[0]
   return bookfile
-
 
 def create_index(bookfile):
   index = {}
@@ -44,22 +42,28 @@ def create_index(bookfile):
 
   return index
 
-
 def search(word, index):
-  pass
+  return index.get(word) if index.get(word) else []
 
+def list_books(books):
+  for book in books: 
+    print("{}: {}".format(book[0], book[1]))
 
 def main():
   parser = create_parser()
   args = parser.parse_args()
+
   bookfile = set_data_file(args)
   print('Using "{}" as book data source.'.format(bookfile))
+
   index = create_index(bookfile)
   print('Created index on "{}" with {} words.'.format(bookfile, len(index)))
 
-  # Run Searches
+  books = []
+  for word in args.words:
+    books.extend(search(word, index))
 
-  # Print Results
+  list_books(set(books))
 
 if __name__ == '__main__':
   main()
