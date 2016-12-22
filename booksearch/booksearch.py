@@ -13,6 +13,8 @@ class BookSearchParser(argparse.ArgumentParser):
 def create_parser():
   parser = BookSearchParser()
   # Add arguments here
+  parser.add_argument('-f', '--file', nargs=1, help="JSON File to be searched.")
+
 
   return parser
 
