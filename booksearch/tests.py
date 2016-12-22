@@ -50,19 +50,27 @@ class RunCommandTest(unittest.TestCase):
 class CreateIndexTest(unittest.TestCase):
 
   def setUp(self):
-    pass
+    parser = create_parser()
+    args = parser.parse_args([
+      '-f', 'bookdata_small.json', 'hello', 'world'])
+    bookfile = set_data_file(args)
+    self.index = create_index(bookfile)
+    self.words = self.index.keys()
 
   def tearDown(self):
     pass
 
   def test_no_punctuation_in_index_words(self):
-    pass
+    self.assertIn('sandwich', self.words)
+    self.assertNotIn('sandwich.', self.words)
 
   def test_index_words_are_lowercase(self):
-    pass
+    self.assertIn('guide', self.words)
+    self.assertNotIn('Guide', self.words)
 
   def test_index_includes_title_and_description_only(self):
-    pass
+    self.assertIn('guide', self.words)
+    self.assertNotIn('Gambardella', self.words)
 
   def test_all_books_in_index(self):
     pass
