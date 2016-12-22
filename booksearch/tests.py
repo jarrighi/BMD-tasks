@@ -1,5 +1,6 @@
 import unittest
 from booksearch import *
+import sys
 
 
 class RunCommandTest(unittest.TestCase):
@@ -10,6 +11,15 @@ class RunCommandTest(unittest.TestCase):
   def tearDown(self):
     pass
 
+  def test_returns_help_with_help_arg(self):
+    parser = create_parser()
+    with self.assertRaises(SystemExit) as cm:
+      parser.parse_args(['-h'])
+      
+    output = sys.stdout.getvalue().strip()
+    expected = "usage: tests.py [-h]"
+    self.assertIn(expected, output)
+
   def test_command_takes_any_number_of_word_args(self):
     pass
 
@@ -18,11 +28,26 @@ class RunCommandTest(unittest.TestCase):
     args = parser.parse_args(['-f', 'bookdata.json'])
     self.assertIsInstance(args.file, list)
     self.assertEqual(args.file[0], 'bookdata.json')
-
-  def test_returns_help_with_no_args(self):
     pass
 
+  def test_returns_help_with_no_args(self):
+    parser = create_parser()
+    with self.assertRaises(SystemExit) as x:
+      parser.parse_args()
+
+    output = sys.stdout.getvalue().strip()
+    expected = "usage: tests.py [-h]"
+    self.assertIn(expected, output)
+
+
   def test_returns_help_with_invalid_args(self):
+    parser = create_parser()
+    with self.assertRaises(SystemExit) as x:
+      parser.parse_args(["-u"])
+
+    output = sys.stdout.getvalue().strip()
+    expected = "usage: tests.py [-h]"
+    self.assertIn(expected, output)
     pass
 
 
@@ -62,4 +87,4 @@ class SearchTest(unittest.TestCase):
     pass
 
 if __name__ == "__main__":
-  unittest.main() 
+  unittest.main(buffer=True) 
