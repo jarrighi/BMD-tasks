@@ -1,0 +1,10 @@
+{
+  "bk101": {
+    "description": "An in-depth look at creating applications \n      with sandwich.", 
+    "title": "XML Developer's Guide", 
+    "price": "44.95", 
+    "author": "Gambardella, Matthew", 
+    "publish_date": "2000-10-01", 
+    "genre": "Computer"
+  },
+}
